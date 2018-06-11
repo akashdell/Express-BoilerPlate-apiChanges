@@ -1,0 +1,53 @@
+author==Author
+body==Body in windows
+
+<!--
+block content
+  h1 #{title}
+  ul
+    each article, i in articles1
+      li
+        p #{article} -->
+
+
+table
+tr
+  th Title
+  th Author
+  th body
+  each article in articles1
+  
+    tr
+      td #{article.title}
+      td #{article.author}
+      td #{article.body}
+
+       form(action='https://www.google.co.in' method='get')
+        button(type='submit') Submit
+
+        form(action='http://google.com', method='get', id="form1")
+        button(type='submit', form="form1")
+
+===========================================================================
+      app.use(bodyParser.urlencoded({extended: true}))
+app.post('/insert',function(req,res){
+  console.log(req.body)
+   
+  let article1 = new articles(req.body);
+
+   article1.save((err, result) => {
+       if (err) throw err;
+       console.log("saved to database");
+       res.send("<H1>1 records inserted </H1>");
+       //alert("one Rocord inserted");
+       res.redirect('/')
+   });
+  
+  }); 
+  ==========================================================================
+  app.delete('/delete/:id',function(req,res){
+    console.log("deletion started");
+    //articles.find({ _id:id }).remove().exec();
+   res.send("<H1>1 records Deleted </H1>");
+  });
+  ===========================================================================
