@@ -17,13 +17,14 @@ class articlesController {
     static insertArticles(req,res)
       {   
         let articles= require('../models/article');
+        console.log(req.body,">>>>>>>>>>>>>>>>>>>>>>>>>");
         let article1 = new articles(req.body);
         article1.save((err, result) => {
         if (err) throw err;
         console.log("saved to database");
-       // res.send("<H1>1 records inserted </H1>");
+        res.send("<H1>1 records inserted </H1>");
         //alert("one Rocord inserted");
-        res.redirect('/')
+        //res.redirect('/')
         });
   
       }
@@ -82,7 +83,7 @@ class articlesController {
            }
            else{
              console.log(updatedObject)
-            // res.send(updatedObject);
+             res.send("<h1> record updated </h1>");
            }
 
        });

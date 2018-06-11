@@ -15,7 +15,7 @@ class openHomeController{
             console.log(err);
         }
         else{
-           // console.log("results are",results);
+           console.log("results are",results);
             res.render(path,{
               title:'Articles',
               articles1:results
