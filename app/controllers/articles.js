@@ -1,3 +1,5 @@
+const articles= require('../models/article');
+const  path='../views/update1.pug';
 class articlesController {
     
     static getArticles(req, res) {
@@ -5,7 +7,6 @@ class articlesController {
     }
     static deleteArticles(req,res)
     {
-      let articles= require('../models/article');
       console.log("deletion started");
       articles.find({ _id:req.params.id }).remove().exec();
       res.send("<H1>1 records deleted </H1>");
@@ -13,15 +14,12 @@ class articlesController {
     }
 
     static insertArticles(req,res)
-    {   
-      let articles= require('../models/article');
-      //console.log(req.body,">>>>>>>>>>>>>>>>>>>>>>>>>");
+    {  
       let article1 = new articles(req.body);
       article1.save((err, result) => {
       if (err) throw err;
       console.log("saved to database");
       res.send("<H1>1 records inserted </H1>");
-      //alert("one Rocord inserted");
       //res.redirect('/')
       });
   
@@ -31,7 +29,6 @@ class articlesController {
     {
       let articles= require('../models/article');
       console.log("pass");
-      const  path='../views/update1.pug';
       console.log("inside getHome.js controllers")
       console.log("request===",req.params.id);
       articles.findOne({ _id:req.params.id}, function(err, results){

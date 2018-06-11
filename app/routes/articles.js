@@ -1,6 +1,5 @@
 const express = require("express");
 const articlesController = require("../controllers/articles");
-
 const initArticles = () => {
     const articlesRouter = express.Router();
     articlesRouter.get('/', articlesController.getArticles);
@@ -10,7 +9,5 @@ const initArticles = () => {
     articlesRouter.put('/:id', articlesController.updateArticles);
    return articlesRouter;
 }
-
-
 module.exports = initArticles;
               

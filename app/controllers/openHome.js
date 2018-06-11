@@ -1,8 +1,8 @@
+const  path='../views/index.pug';
+const articles= require('../models/article.js');
 class openHomeController{
   static getHome(req,res)
   {
-    let articles= require('../models/article.js');
-    const  path='../views/index.pug';
     console.log("inside getHome.js controllers")
     articles.find({}, function(err, results){
       console.log("level1 pass")
