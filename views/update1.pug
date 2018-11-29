@@ -11,7 +11,7 @@ html
       }
   body
     p Update your record
-    form(action='/update/'+articles1._id, method='post')
+    form(action='/update/'+articles1._id, method='put')
     
       input(type='text', placeholder='Title', name='title', value=articles1.title)
       br

@@ -30,7 +30,7 @@ head
 header.navbar
   section.navbar-section
     a.btn.btn-link(href='/insert1.html') Create
-    a.btn.btn-link(href='/article') Docs
+    a.btn.btn-link(href='/articles') Docs
     a.btn.btn-link(href='https://github.com/') GitHub
   section.navbar-section
     .input-group.input-inline
@@ -61,9 +61,9 @@ table
       td #{article.body}
       td #{article._id}
       td  
-        a.btn(href="http://localhost:8002/change/"+article._id, data-method='get') update
+        a.btn(href="http://localhost:8002/articles/"+article._id, data-method='get') update
       td 
-        form(action="http://localhost:8002/delete/"+article._id, method='post', id="form1")
+        form(action="http://localhost:8002/articles/"+article._id, method='post', id="form1")
         <input type="hidden" name="_method" value="delete"/>
         button.btn(type='submit',form="form1",onclick="return confirm('Are you sure?')") Delete
         
